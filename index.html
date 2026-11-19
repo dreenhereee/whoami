@@ -81,7 +81,8 @@ h2{font-size:clamp(2rem,6vw,3rem);letter-spacing:.04em;margin:0 0 8px;text-align
 .pc{width:200px;height:200px;border-radius:50%;border:2px dashed #7d93ad;display:grid;place-items:center;text-align:center;padding:24px;font-size:.9rem;color:#4a5b70;background:rgba(255,255,255,.5);transition:transform .3s,border-color .3s,background .3s}
 .pc:hover{transform:scale(1.06);border-color:var(--ac2);background:#fff}
 .pc b{display:block;color:var(--ink);font-size:1.05rem}
-.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:34px}
+.ct{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:34px}
+@media (max-width:760px){.ct{grid-template-columns:repeat(2,minmax(0,1fr))}.ct a{padding:12px;font-size:.9rem}.ct a:last-child{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}}
 .ct a{display:block;min-width:0;overflow:hidden;text-decoration:none;color:inherit;border:1px solid rgba(143,163,187,.3);border-radius:12px;padding:14px 16px;transition:.25s;background:rgba(14,36,66,.5)}
 .ct a:hover{border-color:var(--ac);transform:translateY(-3px)}
 .ct small{display:block;font:.75rem var(--mono);color:var(--ac)}
