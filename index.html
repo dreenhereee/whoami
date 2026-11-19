@@ -3,172 +3,200 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ido — Profil</title>
+<title>Ido a.k.a Dreen — Profil dan Portofolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  box-sizing:border-box;color-scheme:dark;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-  --ink:#e6f4ff;--muted:#8fb0c9;--line:rgba(120,190,255,.18);--accent:#38d6ff;--accent2:#2f7bff;--glass:rgba(8,28,52,.55);
-  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-}
+:root{box-sizing:border-box;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--navy:#071326;--navy2:#0e2442;--steel:#8fa3bb;--mist:#dde4ec;--ink:#0c1a2e;--ac:#5cc8ff;--ac2:#1f5fbf;--d:5vw;
+--sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);background:#020813}
-body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:17px;min-height:100vh;
-  background:linear-gradient(180deg,#0a2a52 0%,#061a38 30%,#030f24 65%,#010510 100%);background-attachment:fixed}
-#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-#glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;z-index:0;pointer-events:none;border-radius:50%;
-  background:radial-gradient(circle,rgba(56,214,255,.18),rgba(47,123,255,.08) 45%,transparent 70%);transform:translate(-999px,-999px)}
-main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:40px 20px 64px}
-h1{font-size:clamp(2.8rem,10vw,5rem);line-height:1;margin:0 0 12px;letter-spacing:-.03em;
-  background:linear-gradient(90deg,#e6f4ff,#38d6ff 60%,#2f7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
-h2{font-size:1.2rem;margin:0 0 14px;color:var(--accent)}
-p{margin:0 0 12px;max-width:62ch}
-.hero{padding:24px 0 32px;border-bottom:1px solid var(--line)}
-.term{font-family:var(--mono);font-size:.85rem;color:var(--muted);margin-bottom:18px}
-.term b{color:var(--accent)}
-.akat{font-family:var(--mono);font-size:.3em;font-weight:400;-webkit-text-fill-color:var(--muted);color:var(--muted);letter-spacing:0;vertical-align:.35em}
-.tag{font-size:1.15rem;max-width:36ch;margin-bottom:22px}
-.cursor{display:inline-block;width:.5em;height:.9em;background:var(--accent);vertical-align:-.08em;margin-left:6px;-webkit-text-fill-color:initial;animation:blink 1s steps(2) infinite}
-@keyframes blink{50%{opacity:0}}
-section{padding:30px 0;border-bottom:1px solid var(--line)}
-.facts{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
-.facts dt{color:var(--muted);font-family:var(--mono);font-size:.85rem;padding-top:3px}
-.facts dd{margin:0}
-.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
-.chips li{background:rgba(56,214,255,.1);border:1px solid var(--line);padding:4px 12px;border-radius:999px;font-size:.92rem}
-.skill{margin-bottom:14px}
-.skill .row{display:flex;justify-content:space-between;gap:10px;font-size:.95rem;margin-bottom:5px}
-.skill .row span:last-child{font-family:var(--mono);color:var(--muted);font-size:.8rem;white-space:nowrap}
-.bar{height:8px;background:rgba(120,190,255,.14);border-radius:4px;overflow:hidden}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:4px}
-.setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.box{background:var(--glass);border:1px solid var(--line);padding:16px;border-radius:10px;backdrop-filter:blur(6px)}
-.box h3{margin:0 0 6px;font-size:1rem}
-.box p{margin:0;color:var(--muted);font-size:.95rem}
-.goal{font-size:1.15rem;border-left:4px solid var(--accent);padding-left:14px}
-.wip{border:1px dashed var(--muted);padding:16px;border-radius:10px;color:var(--muted)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;text-decoration:none;color:#021226;
-  background:linear-gradient(90deg,var(--accent),#7fe7ff);padding:12px 20px;border-radius:10px;border:0;cursor:pointer;
-  transition:transform .15s ease,box-shadow .15s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,214,255,.35)}
-.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--accent)}
-.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.contact-note{color:var(--muted);font-size:.9rem;margin-top:12px;font-family:var(--mono)}
-footer{padding-top:26px;color:var(--muted);font-size:.9rem}
-@media (prefers-reduced-motion:reduce){.cursor{animation:none}.btn{transition:none}}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);background:var(--navy)}
+body{margin:0;background:var(--navy);color:#e6eef8;font-family:var(--sans);line-height:1.6;font-size:17px;overflow-x:hidden}
+@media (pointer:fine){body,a,button,input,textarea{cursor:none}}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--ac2),var(--ac));z-index:50}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#dot,#ring{position:fixed;left:0;top:0;z-index:60;pointer-events:none;border-radius:50%;display:none}
+#dot{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--ac)}
+#ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--ac);transition:width .25s,height .25s,margin .25s,background .25s}
+#ring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(92,200,255,.14)}
+@media (pointer:fine){#dot,#ring{display:block}}
+nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:14px}
+nav a{width:11px;height:11px;border:2px solid var(--steel);border-radius:3px;transform:rotate(45deg);display:block;position:relative;transition:.3s}
+nav a.on{background:var(--ac);border-color:var(--ac);transform:rotate(45deg) scale(1.3)}
+nav a span{position:absolute;right:22px;top:-6px;transform:rotate(-45deg);font:.72rem var(--mono);background:var(--navy2);color:#fff;padding:2px 8px;border-radius:4px;opacity:0;pointer-events:none;white-space:nowrap;transition:.2s}
+nav a:hover span{opacity:1}
+@media (max-width:760px){nav{display:none}}
+.sec{position:relative;margin-top:calc(var(--d) * -1);padding:calc(var(--d) + 80px) 22px calc(var(--d) + 80px);clip-path:polygon(0 0,100% var(--d),100% 100%,0 calc(100% - var(--d)))}
+.sec.first{margin-top:0;padding-top:90px;clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - var(--d)))}
+.sec.last{clip-path:polygon(0 0,100% var(--d),100% 100%,0 100%)}
+.dark{background:linear-gradient(180deg,var(--navy2),var(--navy))}
+.light{background:var(--mist);color:var(--ink)}
+.wrap{max-width:900px;margin:0 auto}
+h2{font-size:clamp(2rem,6vw,3rem);letter-spacing:.04em;margin:0 0 8px;text-align:center}
+.sub{text-align:center;color:var(--steel);margin:0 auto 44px;max-width:50ch}
+.light .sub{color:#4a5b70}
+.sep{width:44px;height:3px;background:var(--ac);margin:0 auto 18px;border-radius:2px}
+.light .sep{background:var(--ac2)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--dl,0s)}
+.rv.in{opacity:1;transform:none}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 30%,#14407a,var(--navy) 70%)}
+.hero h1{font-size:clamp(3rem,13vw,7.5rem);line-height:.95;letter-spacing:-.03em;margin:10px 0 14px;background:linear-gradient(90deg,#fff,var(--ac) 55%,#7aa8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 small{display:block;font:400 clamp(.9rem,3vw,1.3rem) var(--mono);letter-spacing:.1em;-webkit-text-fill-color:var(--steel);margin:6px 0}
+.hi{font:.95rem var(--mono);color:var(--steel)}
+.type{font:700 clamp(1.1rem,3.5vw,1.6rem) var(--mono);color:var(--ac);min-height:2em}
+.type::after{content:"";display:inline-block;width:.5em;height:1em;background:var(--ac);margin-left:4px;vertical-align:-.12em;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+.btn{display:inline-block;font:700 1rem var(--sans);text-decoration:none;color:#031427;background:linear-gradient(90deg,var(--ac),#9be4ff);padding:12px 22px;border-radius:999px;border:0;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(92,200,255,.35)}
+.btn.alt{background:transparent;color:inherit;border:1.5px solid var(--ac)}
+.light .btn.alt{border-color:var(--ac2)}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.about{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+.avatar{width:170px;height:170px;border-radius:50%;background:conic-gradient(from 200deg,var(--ac2),var(--ac),#0b2a52,var(--ac2));display:grid;place-items:center;font:700 3.4rem var(--sans);color:#fff;box-shadow:0 0 0 6px rgba(31,95,191,.18);animation:sp 14s linear infinite}
+.avatar b{animation:sp 14s linear infinite reverse;display:block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:14px 0 0;list-style:none}
+.chips li{background:rgba(31,95,191,.12);border:1px solid rgba(31,95,191,.3);padding:4px 13px;border-radius:999px;font-size:.9rem}
+@media (max-width:640px){.about{grid-template-columns:1fr;justify-items:center;text-align:center}.chips{justify-content:center}}
+.tl{position:relative;max-width:760px;margin:0 auto}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(var(--ac),transparent);transform:translateX(-50%)}
+.it{position:relative;width:50%;padding:0 38px 44px 0;text-align:right}
+.it:nth-child(even){margin-left:50%;padding:0 0 44px 38px;text-align:left}
+.it::after{content:"";position:absolute;right:-8px;top:6px;width:16px;height:16px;background:var(--navy);border:2px solid var(--ac);transform:rotate(45deg)}
+.it:nth-child(even)::after{right:auto;left:-8px}
+.it h3{margin:0;font-size:1.15rem}.it small{font:.8rem var(--mono);color:var(--ac)}
+.it p{margin:6px 0 0;color:var(--steel);font-size:.95rem}
+@media (max-width:640px){.tl::before{left:8px}.it,.it:nth-child(even){width:100%;margin:0;padding:0 0 34px 38px;text-align:left}.it::after,.it:nth-child(even)::after{left:1px;right:auto}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.card{background:#fff;border-radius:14px;padding:22px 18px;text-align:center;box-shadow:0 6px 22px rgba(12,26,46,.1);transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .15s ease-out}
+.card i{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 12px;border:2px solid var(--ac2);transform:rotate(45deg);color:var(--ac2);font:700 1.1rem var(--mono)}
+.card i b{transform:rotate(-45deg)}
+.card h3{margin:0 0 6px;font-size:1.05rem}.card p{margin:0;font-size:.9rem;color:#4a5b70}
+.sk{margin-bottom:18px}.sk .r{display:flex;justify-content:space-between;gap:10px;margin-bottom:6px;font-size:.95rem}
+.sk .r span:last-child{font:.8rem var(--mono);color:var(--steel);white-space:nowrap}
+.bar{height:9px;background:rgba(143,163,187,.2);border-radius:5px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac2),var(--ac));border-radius:5px;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.pj{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;justify-items:center}
+.pc{width:200px;height:200px;border-radius:50%;border:2px dashed #7d93ad;display:grid;place-items:center;text-align:center;padding:24px;font-size:.9rem;color:#4a5b70;background:rgba(255,255,255,.5);transition:transform .3s,border-color .3s,background .3s}
+.pc:hover{transform:scale(1.06);border-color:var(--ac2);background:#fff}
+.pc b{display:block;color:var(--ink);font-size:1.05rem}
+.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:34px}
+.ct a{display:block;text-decoration:none;color:inherit;border:1px solid rgba(143,163,187,.3);border-radius:12px;padding:14px 16px;transition:.25s;background:rgba(14,36,66,.5)}
+.ct a:hover{border-color:var(--ac);transform:translateY(-3px)}
+.ct small{display:block;font:.75rem var(--mono);color:var(--ac)}
+form{display:grid;gap:12px;max-width:560px;margin:0 auto}
+input,textarea{font:inherit;color:#fff;background:rgba(14,36,66,.6);border:1px solid rgba(143,163,187,.35);border-radius:10px;padding:12px 14px;width:100%}
+textarea{min-height:110px;resize:vertical}
+footer{text-align:center;color:var(--steel);font-size:.85rem;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));background:var(--navy)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.avatar,.avatar b,.type::after{animation:none}.bar i{transition:none}}
 </style>
 </head>
 <body>
-<canvas id="fx" aria-hidden="true"></canvas>
-<div id="glow" aria-hidden="true"></div>
-<main>
-  <header class="hero">
-    <div class="term"><b>ido@poco-x7-pro</b>:~$ whoami</div>
-    <h1>Ido <span class="akat">a.k.a</span> Dreen<span class="cursor" aria-hidden="true"></span></h1>
-    <p class="tag">Rhido Rahmansyah. Anak SMK yang hobi ngoprek HP dan penasaran sama semua hal soal teknologi dan AI.</p>
-    <div class="cta">
-      <a class="btn" href="https://wa.me/6285768878279?text=Halo%20Ido%2C%20gue%20lihat%20profil%20lo" target="_blank" rel="noopener">Chat WhatsApp</a>
-      <a class="btn alt" href="mailto:dreonlysh.aish@gmail.com">Kirim email</a>
-      <a class="btn alt" href="https://www.tiktok.com/@dreenhereee" target="_blank" rel="noopener">TikTok</a>
-      <a class="btn alt" href="https://www.instagram.com/idoo_syahh" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </header>
+<div id="bar"></div><canvas id="fx" aria-hidden="true"></canvas><div id="dot"></div><div id="ring"></div>
+<nav aria-label="Navigasi bagian">
+<a href="#home"><span>Awal</span></a><a href="#tentang"><span>Tentang</span></a><a href="#jalan"><span>Perjalanan</span></a><a href="#bisa"><span>Bisa apa</span></a><a href="#skill"><span>Skill</span></a><a href="#proyek"><span>Proyek</span></a><a href="#kontak"><span>Kontak</span></a>
+</nav>
 
-  <section>
-    <h2>Info singkat</h2>
-    <dl class="facts">
-      <dt>nama</dt><dd>Rhido Rahmansyah (panggil aja Ido, di komunitas dikenal Dreen)</dd>
-      <dt>sekolah</dt><dd>SMK kelas 11, jurusan Desain Visual dan Komunikasi</dd>
-      <dt>minat</dt><dd>Teknologi, AI, custom ROM, root</dd>
-      <dt>target</dt><dd>Kerja yang dekat ke dunia teknologi setelah lulus</dd>
-      <dt>gaya belajar</dt><dd>Langsung praktik, tergantung mood</dd>
-    </dl>
-  </section>
+<section id="home" class="sec first dark hero"><div class="wrap">
+<div class="hi">halo, gue</div>
+<h1>Ido<small>a.k.a</small>Dreen</h1>
+<div class="type" id="type"></div>
+<p style="color:var(--steel);max-width:44ch;margin:8px auto 0">Siswa SMK Desain Visual dan Komunikasi yang penasaran sama semua hal soal teknologi dan AI.</p>
+<div class="cta"><a class="btn" href="#kontak">Hubungi gue</a><a class="btn alt" href="#proyek">Lihat proyek</a></div>
+</div></section>
 
-  <section>
-    <h2>Skill</h2>
-    <div class="skill"><div class="row"><span>Oprek HP: port ROM, root, custom ROM</span><span>lumayan expert</span></div><div class="bar"><i style="width:80%"></i></div></div>
-    <div class="skill"><div class="row"><span>Photoshop, Illustrator, CorelDRAW</span><span>medium</span></div><div class="bar"><i style="width:50%"></i></div></div>
-    <div class="skill"><div class="row"><span>AI dan teknologi umum</span><span>masih belajar</span></div><div class="bar"><i style="width:35%"></i></div></div>
-    <div class="skill"><div class="row"><span>Ide ke implementasi</span><span>lagi dilatih</span></div><div class="bar"><i style="width:30%"></i></div></div>
-    <div class="skill"><div class="row"><span>Bahasa Inggris</span><span>dasar</span></div><div class="bar"><i style="width:35%"></i></div></div>
-  </section>
+<section id="tentang" class="sec light"><div class="wrap">
+<h2 class="rv">Tentang</h2><div class="sep rv"></div>
+<div class="about rv"><div class="avatar" aria-hidden="true"><b>R</b></div>
+<div><p><strong>Rhido Rahmansyah</strong>, biasa dipanggil Ido, di komunitas dikenal sebagai Dreen. Kelas 11 SMK jurusan Desain Visual dan Komunikasi, tapi fokusnya nggak cuma di desain.</p>
+<p>Paling betah ngoprek HP: port ROM, root, sampai custom ROM. Targetnya lulus lalu langsung kerja di bidang yang dekat ke teknologi. Belajarnya lewat praktik langsung, tergantung mood.</p>
+<ul class="chips"><li>Teknologi</li><li>AI</li><li>Custom ROM</li><li>Desain visual</li></ul></div></div>
+</div></section>
 
-  <section>
-    <h2>Yang lagi dipelajari</h2>
-    <ul class="chips"><li>AI</li><li>Desain visual</li><li>Portofolio</li><li>Bahasa Inggris</li><li>Implementasi ide</li></ul>
-  </section>
+<section id="jalan" class="sec dark"><div class="wrap">
+<h2 class="rv">Perjalanan</h2><div class="sep rv"></div><p class="sub rv">Posisi gue sekarang dan arah ke depan.</p>
+<div class="tl">
+<div class="it rv"><small>sekarang</small><h3>SMK kelas 11</h3><p>Desain Visual dan Komunikasi. Pakai Photoshop, Illustrator, dan CorelDRAW di level medium.</p></div>
+<div class="it rv"><small>skill utama</small><h3>Oprek HP</h3><p>Port ROM, root, custom ROM. Bukan build dari tree, tapi sudah lumayan jago.</p></div>
+<div class="it rv"><small>lagi dikejar</small><h3>AI, portofolio, bahasa Inggris</h3><p>Ngubah ide jadi hasil nyata dan nyusun karya jadi portofolio.</p></div>
+<div class="it rv"><small>tujuan</small><h3>Kerja di dunia teknologi</h3><p>Setelah lulus, langsung terjun ke kerjaan yang dekat dengan teknologi.</p></div>
+</div></div></section>
 
-  <section>
-    <h2>Perangkat</h2>
-    <div class="setup">
-      <div class="box"><h3>Poco X7 Pro</h3><p>12/512 GB. Kelinci percobaan utama buat ngoprek.</p></div>
-      <div class="box"><h3>PC rakitan</h3><p>Intel i5 4590, RX 570 4GB, RAM 16GB. Tua tapi masih tangguh.</p></div>
-    </div>
-  </section>
+<section id="bisa" class="sec light"><div class="wrap">
+<h2 class="rv">Bisa apa</h2><div class="sep rv"></div><p class="sub rv">Hal yang paling sering gue kerjain.</p>
+<div class="grid">
+<div class="card rv" style="--dl:.0s"><i><b>P</b></i><h3>Port ROM</h3><p>Bawa ROM dari satu device ke device lain.</p></div>
+<div class="card rv" style="--dl:.1s"><i><b>R</b></i><h3>Root dan custom ROM</h3><p>Pasang, atur, dan bongkar pasang sistem HP.</p></div>
+<div class="card rv" style="--dl:.2s"><i><b>D</b></i><h3>Desain visual</h3><p>Poster dan grafis dengan Photoshop, Illustrator, CorelDRAW.</p></div>
+<div class="card rv" style="--dl:.3s"><i><b>A</b></i><h3>Eksplor AI</h3><p>Masih belajar, tapi gas terus.</p></div>
+</div></div></section>
 
-  <section>
-    <h2>Tujuan</h2>
-    <p class="goal">Lulus SMK, langsung kerja di bidang yang deket sama teknologi.</p>
-  </section>
+<section id="skill" class="sec dark"><div class="wrap" style="max-width:640px">
+<h2 class="rv">Skill</h2><div class="sep rv"></div><p class="sub rv">Jujur sesuai level sekarang.</p>
+<div class="sk rv"><div class="r"><span>Oprek HP</span><span>lumayan expert</span></div><div class="bar"><i data-w="80"></i></div></div>
+<div class="sk rv"><div class="r"><span>Photoshop, Illustrator, CorelDRAW</span><span>medium</span></div><div class="bar"><i data-w="50"></i></div></div>
+<div class="sk rv"><div class="r"><span>AI dan teknologi umum</span><span>masih belajar</span></div><div class="bar"><i data-w="35"></i></div></div>
+<div class="sk rv"><div class="r"><span>Ide ke implementasi</span><span>lagi dilatih</span></div><div class="bar"><i data-w="30"></i></div></div>
+<div class="sk rv"><div class="r"><span>Bahasa Inggris</span><span>dasar</span></div><div class="bar"><i data-w="35"></i></div></div>
+</div></section>
 
-  <section>
-    <h2>Portofolio</h2>
-    <div class="wip">Belum jadi. Proyek ROM dan karya desain bakal muncul di sini.</div>
-  </section>
+<section id="proyek" class="sec light"><div class="wrap">
+<h2 class="rv">Proyek</h2><div class="sep rv"></div><p class="sub rv">Portofolio lagi disiapkan. Slot ini bakal diisi hasil karya.</p>
+<div class="pj"><div class="pc rv"><div><b>Port ROM</b>segera hadir</div></div><div class="pc rv" style="--dl:.1s"><div><b>Desain visual</b>segera hadir</div></div><div class="pc rv" style="--dl:.2s"><div><b>Eksperimen</b>segera hadir</div></div></div>
+</div></section>
 
-  <section>
-    <h2>Hubungi gue</h2>
-    <p>Buat kerja bareng, tanya-tanya soal oprek HP, atau sekadar ngobrol teknologi.</p>
-    <div class="cta">
-      <a class="btn" href="https://wa.me/6285768878279?text=Halo%20Ido%2C%20gue%20lihat%20profil%20lo" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn alt" href="mailto:dreonlysh.aish@gmail.com">Email</a>
-      <a class="btn alt" href="https://www.tiktok.com/@dreenhereee" target="_blank" rel="noopener">TikTok</a>
-      <a class="btn alt" href="https://www.instagram.com/idoo_syahh" target="_blank" rel="noopener">Instagram</a>
-    </div>
-    <p class="contact-note">WA 0857-6887-8279 &nbsp;|&nbsp; dreonlysh.aish@gmail.com<br>TikTok @dreenhereee &nbsp;|&nbsp; IG @idoo_syahh</p>
-  </section>
+<section id="kontak" class="sec last dark"><div class="wrap">
+<h2 class="rv">Kontak</h2><div class="sep rv"></div><p class="sub rv">Buat kerja bareng, tanya soal oprek HP, atau ngobrol teknologi.</p>
+<div class="ct rv">
+<a href="https://wa.me/6285768878279" target="_blank" rel="noopener"><small>WhatsApp</small>0857-6887-8279</a>
+<a href="mailto:dreonlysh.aish@gmail.com"><small>Email</small>dreonlysh.aish@gmail.com</a>
+<a href="https://www.tiktok.com/@dreenhereee" target="_blank" rel="noopener"><small>TikTok</small>@dreenhereee</a>
+<a href="https://www.instagram.com/idoo_syahh" target="_blank" rel="noopener"><small>Instagram</small>@idoo_syahh</a></div>
+<form class="rv" onsubmit="return false"><input id="nm" placeholder="Nama lo" aria-label="Nama"><textarea id="ms" placeholder="Tulis pesan..." aria-label="Pesan"></textarea>
+<a id="send" class="btn" style="text-align:center" href="https://wa.me/6285768878279" target="_blank" rel="noopener">Kirim lewat WhatsApp</a></form>
+</div></section>
+<footer>Ido a.k.a Dreen. Dibuat dengan Claude.</footer>
 
-  <footer>Dibuat dengan Claude buat Ido. Gerakin kursor atau tap layar, ada gelembungnya.</footer>
-</main>
 <script>
 (function(){
-  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),glow=document.getElementById('glow');
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W,H,dpr=Math.min(devicePixelRatio||1,2),ps=[],mx=-999,my=-999,gx=-999,gy=-999,N=70;
-  function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
-  function mk(x,y){return{x:x==null?Math.random()*W:x,y:y==null?Math.random()*H:y,r:Math.random()*2.5+.8,vx:(Math.random()-.5)*.2,vy:-(Math.random()*.4+.1),a:Math.random()*.5+.2}}
-  size();for(var i=0;i<N;i++)ps.push(mk());
-  addEventListener('resize',size);
-  function move(e){var t=e.touches?e.touches[0]:e;mx=t.clientX;my=t.clientY;
-    if(!reduce&&Math.random()<.5){var b=mk(mx,my);b.vx=(Math.random()-.5)*1.2;b.vy=-(Math.random()*1+.4);b.a=.8;b.r=Math.random()*3+1.5;ps.push(b);if(ps.length>N+90)ps.shift()}}
-  addEventListener('pointermove',move,{passive:true});
-  addEventListener('touchmove',move,{passive:true});
-  addEventListener('pointerdown',function(e){move(e);if(reduce)return;for(var k=0;k<14;k++){var b=mk(e.clientX,e.clientY),an=Math.random()*6.28,sp=Math.random()*2+.5;b.vx=Math.cos(an)*sp;b.vy=Math.sin(an)*sp;b.a=.9;ps.push(b)}});
-  function frame(){
-    gx+=(mx-gx)*.12;gy+=(my-gy)*.12;
-    glow.style.transform='translate('+gx+'px,'+gy+'px)';
-    cx.clearRect(0,0,W,H);
-    for(var i=0;i<ps.length;i++){var p=ps[i];
-      var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<140&&d>0){var f=(140-d)/140*.6;p.vx+=dx/d*f*.15;p.vy+=dy/d*f*.15}
-      p.vx*=.985;p.vy=p.vy*.985+(-.004);
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.y<-10){p.y=H+10;p.x=Math.random()*W;p.a=Math.random()*.5+.2}
-      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
-      cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);
-      cx.fillStyle='rgba(120,220,255,'+Math.min(p.a,1)*.55+')';cx.fill();
-      cx.strokeStyle='rgba(180,240,255,'+Math.min(p.a,1)*.5+')';cx.lineWidth=.8;cx.stroke();
-      if(d<110){cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.strokeStyle='rgba(56,214,255,'+(1-d/110)*.35+')';cx.stroke()}
-    }
-    requestAnimationFrame(frame);
-  }
-  if(reduce){glow.style.display='none'}
-  frame();
+var $=function(s,a){return (a||document).querySelectorAll(s)},reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// reveal + bars
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');$('.bar i',e.target).forEach(function(b){b.style.width=b.dataset.w+'%'});io.unobserve(e.target)}})},{threshold:.15});
+$('.rv').forEach(function(el){io.observe(el)});
+// nav active
+var links=$('nav a'),so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{threshold:.5});
+$('section').forEach(function(s){so.observe(s)});
+// progress
+var bar=document.getElementById('bar');addEventListener('scroll',function(){var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+// typewriter
+var ws=['ngoprek HP','port ROM dan custom ROM','desain visual','nyari tahu soal AI'],wi=0,ci=0,del=false,t=document.getElementById('type');
+function tick(){var w=ws[wi];if(reduce){t.textContent=w;wi=(wi+1)%ws.length;return setTimeout(tick,2200)}
+ci+=del?-1:1;t.textContent=w.slice(0,ci);var d=del?35:75;if(!del&&ci===w.length){del=true;d=1400}else if(del&&ci===0){del=false;wi=(wi+1)%ws.length;d=350}setTimeout(tick,d)}tick();
+// tilt
+$('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*12+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*12+'deg')});c.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')})});
+// whatsapp form
+var nm=document.getElementById('nm'),ms=document.getElementById('ms'),sd=document.getElementById('send');
+function up(){var m='Halo Ido, '+(nm.value?'gue '+nm.value+'. ':'')+ms.value;sd.href='https://wa.me/6285768878279?text='+encodeURIComponent(m)}nm.addEventListener('input',up);ms.addEventListener('input',up);
+// cursor + particles
+var cv=document.getElementById('fx'),cx=cv.getContext('2d'),dot=document.getElementById('dot'),ring=document.getElementById('ring');
+var W,H,dpr=Math.min(devicePixelRatio||1,2),ps=[],mx=-999,my=-999,rx=-999,ry=-999;
+function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+function mk(x,y){return{x:x==null?Math.random()*W:x,y:y==null?Math.random()*H:y,r:Math.random()*2.2+.8,vx:(Math.random()-.5)*.2,vy:-(Math.random()*.35+.08),a:Math.random()*.45+.15}}
+size();for(var i=0;i<45;i++)ps.push(mk());addEventListener('resize',size);
+function mv(e){var p=e.touches?e.touches[0]:e;mx=p.clientX;my=p.clientY;dot.style.transform='translate('+mx+'px,'+my+'px)';
+if(!reduce&&Math.random()<.45){var b=mk(mx,my);b.vx=(Math.random()-.5)*1.2;b.vy=-(Math.random()+.3);b.a=.8;b.r=Math.random()*2.8+1.2;ps.push(b);if(ps.length>130)ps.shift()}}
+addEventListener('pointermove',mv,{passive:true});addEventListener('touchmove',mv,{passive:true});
+addEventListener('pointerdown',function(e){mv(e);if(reduce)return;for(var k=0;k<14;k++){var b=mk(e.clientX,e.clientY),an=Math.random()*6.28,sp=Math.random()*2+.5;b.vx=Math.cos(an)*sp;b.vy=Math.sin(an)*sp;b.a=.9;ps.push(b)}});
+document.addEventListener('pointerover',function(e){ring.classList.toggle('big',!!e.target.closest('a,button,.card,.pc,input,textarea'))});
+(function f(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px)';cx.clearRect(0,0,W,H);
+for(var i=0;i<ps.length;i++){var p=ps[i],dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
+if(d<130&&d>0){var k=(130-d)/130*.09;p.vx+=dx/d*k;p.vy+=dy/d*k}
+p.vx*=.985;p.vy=p.vy*.985-.004;p.x+=p.vx;p.y+=p.vy;
+if(p.y<-10){p.y=H+10;p.x=Math.random()*W}if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
+cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle='rgba(92,200,255,'+Math.min(p.a,1)*.45+')';cx.fill();
+if(d<100){cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.strokeStyle='rgba(92,200,255,'+(1-d/100)*.3+')';cx.lineWidth=.8;cx.stroke()}}
+requestAnimationFrame(f)})();
 })();
 </script>
 </body>
