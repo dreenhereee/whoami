@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ido — Profil</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;color-scheme:dark;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --ink:#e6f4ff;--muted:#8fb0c9;--line:rgba(120,190,255,.18);--accent:#38d6ff;--accent2:#2f7bff;--glass:rgba(8,28,52,.55);
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:#020813}
+body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:17px;min-height:100vh;
+  background:linear-gradient(180deg,#0a2a52 0%,#061a38 30%,#030f24 65%,#010510 100%);background-attachment:fixed}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;z-index:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,214,255,.18),rgba(47,123,255,.08) 45%,transparent 70%);transform:translate(-999px,-999px)}
+main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:40px 20px 64px}
+h1{font-size:clamp(2.8rem,10vw,5rem);line-height:1;margin:0 0 12px;letter-spacing:-.03em;
+  background:linear-gradient(90deg,#e6f4ff,#38d6ff 60%,#2f7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:1.2rem;margin:0 0 14px;color:var(--accent)}
+p{margin:0 0 12px;max-width:62ch}
+.hero{padding:24px 0 32px;border-bottom:1px solid var(--line)}
+.term{font-family:var(--mono);font-size:.85rem;color:var(--muted);margin-bottom:18px}
+.term b{color:var(--accent)}
+.tag{font-size:1.15rem;max-width:36ch;margin-bottom:22px}
+.cursor{display:inline-block;width:.5em;height:.9em;background:var(--accent);vertical-align:-.08em;margin-left:6px;-webkit-text-fill-color:initial;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+section{padding:30px 0;border-bottom:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
+.facts dt{color:var(--muted);font-family:var(--mono);font-size:.85rem;padding-top:3px}
+.facts dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.chips li{background:rgba(56,214,255,.1);border:1px solid var(--line);padding:4px 12px;border-radius:999px;font-size:.92rem}
+.skill{margin-bottom:14px}
+.skill .row{display:flex;justify-content:space-between;gap:10px;font-size:.95rem;margin-bottom:5px}
+.skill .row span:last-child{font-family:var(--mono);color:var(--muted);font-size:.8rem;white-space:nowrap}
+.bar{height:8px;background:rgba(120,190,255,.14);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:4px}
+.setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.box{background:var(--glass);border:1px solid var(--line);padding:16px;border-radius:10px;backdrop-filter:blur(6px)}
+.box h3{margin:0 0 6px;font-size:1rem}
+.box p{margin:0;color:var(--muted);font-size:.95rem}
+.goal{font-size:1.15rem;border-left:4px solid var(--accent);padding-left:14px}
+.wip{border:1px dashed var(--muted);padding:16px;border-radius:10px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;text-decoration:none;color:#021226;
+  background:linear-gradient(90deg,var(--accent),#7fe7ff);padding:12px 20px;border-radius:10px;border:0;cursor:pointer;
+  transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,214,255,.35)}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--accent)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.contact-note{color:var(--muted);font-size:.9rem;margin-top:12px;font-family:var(--mono)}
+footer{padding-top:26px;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="glow" aria-hidden="true"></div>
+<main>
+  <header class="hero">
+    <div class="term"><b>ido@poco-x7-pro</b>:~$ whoami</div>
+    <h1>Ido<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="tag">Rhido Rahmansyah. Anak SMK yang hobi ngoprek HP dan penasaran sama semua hal soal teknologi dan AI.</p>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/6285768878279?text=Halo%20Ido%2C%20gue%20lihat%20profil%20lo" target="_blank" rel="noopener">Chat WhatsApp</a>
+      <a class="btn alt" href="mailto:dreonlysh.aish@gmail.com">Kirim email</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Info singkat</h2>
+    <dl class="facts">
+      <dt>nama</dt><dd>Rhido Rahmansyah (panggil aja Ido)</dd>
+      <dt>sekolah</dt><dd>SMK kelas 11, jurusan Desain Visual dan Komunikasi</dd>
+      <dt>minat</dt><dd>Teknologi, AI, custom ROM, root</dd>
+      <dt>target</dt><dd>Kerja yang dekat ke dunia teknologi setelah lulus</dd>
+      <dt>gaya belajar</dt><dd>Langsung praktik, tergantung mood</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Skill</h2>
+    <div class="skill"><div class="row"><span>Oprek HP: port ROM, root, custom ROM</span><span>lumayan expert</span></div><div class="bar"><i style="width:80%"></i></div></div>
+    <div class="skill"><div class="row"><span>Photoshop, Illustrator, CorelDRAW</span><span>medium</span></div><div class="bar"><i style="width:50%"></i></div></div>
+    <div class="skill"><div class="row"><span>AI dan teknologi umum</span><span>masih belajar</span></div><div class="bar"><i style="width:35%"></i></div></div>
+    <div class="skill"><div class="row"><span>Ide ke implementasi</span><span>lagi dilatih</span></div><div class="bar"><i style="width:30%"></i></div></div>
+    <div class="skill"><div class="row"><span>Bahasa Inggris</span><span>dasar</span></div><div class="bar"><i style="width:35%"></i></div></div>
+  </section>
+
+  <section>
+    <h2>Yang lagi dipelajari</h2>
+    <ul class="chips"><li>AI</li><li>Desain visual</li><li>Portofolio</li><li>Bahasa Inggris</li><li>Implementasi ide</li></ul>
+  </section>
+
+  <section>
+    <h2>Perangkat</h2>
+    <div class="setup">
+      <div class="box"><h3>Poco X7 Pro</h3><p>12/512 GB. Kelinci percobaan utama buat ngoprek.</p></div>
+      <div class="box"><h3>PC rakitan</h3><p>Intel i5 4590, RX 570 4GB, RAM 16GB. Tua tapi masih tangguh.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tujuan</h2>
+    <p class="goal">Lulus SMK, langsung kerja di bidang yang deket sama teknologi.</p>
+  </section>
+
+  <section>
+    <h2>Portofolio</h2>
+    <div class="wip">Belum jadi. Proyek ROM dan karya desain bakal muncul di sini.</div>
+  </section>
+
+  <section>
+    <h2>Hubungi gue</h2>
+    <p>Buat kerja bareng, tanya-tanya soal oprek HP, atau sekadar ngobrol teknologi.</p>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/6285768878279?text=Halo%20Ido%2C%20gue%20lihat%20profil%20lo" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn alt" href="mailto:dreonlysh.aish@gmail.com">Email</a>
+    </div>
+    <p class="contact-note">WA 0857-6887-8279 &nbsp;|&nbsp; dreonlysh.aish@gmail.com</p>
+  </section>
+
+  <footer>Dibuat dengan Claude buat Ido. Gerakin kursor atau tap layar, ada gelembungnya.</footer>
+</main>
+<script>
+(function(){
+  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),glow=document.getElementById('glow');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,dpr=Math.min(devicePixelRatio||1,2),ps=[],mx=-999,my=-999,gx=-999,gy=-999,N=70;
+  function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  function mk(x,y){return{x:x==null?Math.random()*W:x,y:y==null?Math.random()*H:y,r:Math.random()*2.5+.8,vx:(Math.random()-.5)*.2,vy:-(Math.random()*.4+.1),a:Math.random()*.5+.2}}
+  size();for(var i=0;i<N;i++)ps.push(mk());
+  addEventListener('resize',size);
+  function move(e){var t=e.touches?e.touches[0]:e;mx=t.clientX;my=t.clientY;
+    if(!reduce&&Math.random()<.5){var b=mk(mx,my);b.vx=(Math.random()-.5)*1.2;b.vy=-(Math.random()*1+.4);b.a=.8;b.r=Math.random()*3+1.5;ps.push(b);if(ps.length>N+90)ps.shift()}}
+  addEventListener('pointermove',move,{passive:true});
+  addEventListener('touchmove',move,{passive:true});
+  addEventListener('pointerdown',function(e){move(e);if(reduce)return;for(var k=0;k<14;k++){var b=mk(e.clientX,e.clientY),an=Math.random()*6.28,sp=Math.random()*2+.5;b.vx=Math.cos(an)*sp;b.vy=Math.sin(an)*sp;b.a=.9;ps.push(b)}});
+  function frame(){
+    gx+=(mx-gx)*.12;gy+=(my-gy)*.12;
+    glow.style.transform='translate('+gx+'px,'+gy+'px)';
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<ps.length;i++){var p=ps[i];
+      var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<140&&d>0){var f=(140-d)/140*.6;p.vx+=dx/d*f*.15;p.vy+=dy/d*f*.15}
+      p.vx*=.985;p.vy=p.vy*.985+(-.004);
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W;p.a=Math.random()*.5+.2}
+      if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;
+      cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);
+      cx.fillStyle='rgba(120,220,255,'+Math.min(p.a,1)*.55+')';cx.fill();
+      cx.strokeStyle='rgba(180,240,255,'+Math.min(p.a,1)*.5+')';cx.lineWidth=.8;cx.stroke();
+      if(d<110){cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.strokeStyle='rgba(56,214,255,'+(1-d/110)*.35+')';cx.stroke()}
+    }
+    requestAnimationFrame(frame);
+  }
+  if(reduce){glow.style.display='none'}
+  frame();
+})();
+</script>
+</body>
+</html>
